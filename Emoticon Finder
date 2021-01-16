@@ -1,0 +1,7 @@
+text = input()
+
+for index in range(len(text)):
+    if text[index] == ":":
+        true_index = index
+        emoticon = text[true_index] + text[true_index + 1]
+        print(emoticon)
