@@ -1,0 +1,7 @@
+user_name = input().split(", ")
+
+for user in user_name:
+    len_user = len(user)
+    if 3 <= len(user) <= 16:
+        if user.isalnum() or "-" in user or "_" in user:
+            print(user)
