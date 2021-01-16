@@ -1,0 +1,22 @@
+data = input().upper()
+
+result = ""
+index = 0
+current_result = ""
+num = ""
+while index < len(data):
+    if not data[index].isdigit():
+        current_result += data[index]
+        index += 1
+        continue
+    while data[index].isdigit() and index < len(data):
+        num += data[index]
+        index += 1
+        if index == len(data):
+            break
+    result += current_result * int(num)
+    current_result = ""
+    num = ""
+unique = len(set(result))
+print(f"Unique symbols used: {unique}")
+print(result)
