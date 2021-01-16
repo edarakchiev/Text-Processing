@@ -1,0 +1,12 @@
+file_path = input().split(".")
+name = file_path[0]
+extension = file_path[1]
+try_name = ""
+for i in range(len(name)):
+    if name[i] == chr(92):
+        index = i
+for ind in range(index+1, len(name)):
+    try_name += name[ind]
+
+print(f"File name: {try_name}")
+print(f"File extension: {extension}")
