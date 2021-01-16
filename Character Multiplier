@@ -1,0 +1,28 @@
+word = input().split()
+word_1 = word[0]
+word_2 = word[1]
+str_sum = 0
+
+length_word_1 = len(word_1)
+length_word_2 = len(word_2)
+
+if length_word_1 == length_word_2:
+    for i in range(length_word_1):
+        multiply = ord(word_1[i]) * ord(word_2[i])
+        str_sum += multiply
+
+elif length_word_1 > length_word_2:
+    for i in range(length_word_2):
+        multiply = ord(word_1[i]) * ord(word_2[i])
+        str_sum += multiply
+    for index in range(length_word_2, length_word_1):
+        str_sum += ord(word_1[index])
+
+
+elif length_word_1 < length_word_2:
+    for i in range(length_word_1):
+        multiply = ord(word_1[i]) * ord(word_2[i])
+        str_sum += multiply
+    for index in range(length_word_1, length_word_2):
+        str_sum += ord(word_2[index])
+print(str_sum)
