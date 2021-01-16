@@ -1,0 +1,9 @@
+data = input()
+data = [el for el in data]
+
+
+for index in range(len(data)-1, 0, -1):
+    if data[index] == data[index-1]:
+        data.pop(index)
+
+print(''.join(data))
