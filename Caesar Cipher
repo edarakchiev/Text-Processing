@@ -1,0 +1,9 @@
+word = input()
+
+encrypted_word = ""
+
+for char in word:
+    value = ord(char) + 3
+    encrypted_word += chr(value)
+
+print(encrypted_word)
