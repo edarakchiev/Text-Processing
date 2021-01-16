@@ -1,0 +1,36 @@
+def is_jackpot(ticket):
+    for symbol in winning_symbols:
+        if symbol * 20 in ticket:
+            print(f'ticket "{ticket}" - 10{symbol} Jackpot!')
+            return True
+
+
+def check_winning_symbols(left_side, right_side):
+    counter = 0
+    for symbol in winning_symbols:
+        if symbol * 6 in left_side and symbol * 6 in right_side:
+            if left_side.count(symbol) > right_side.count(symbol):
+                counter = right_side.count(symbol)
+            else:
+                counter = left_side.count(symbol)
+
+            print(f'ticket "{ticket}" - {counter}{symbol}')
+            return True
+
+
+winning_symbols = ["@", "#", "$", "^"]
+
+tickets = input().split(",")
+
+for t in tickets:
+    ticket = t.strip()
+    if not len(ticket) == 20:
+        print("invalid ticket")
+        continue
+    left_side = ticket[:10]
+    right_side = ticket[10:]
+    if is_jackpot(ticket=ticket):
+        continue
+    if check_winning_symbols(left_side=left_side, right_side=right_side):
+        continue
+    print(f'ticket "{ticket}" - no match')
