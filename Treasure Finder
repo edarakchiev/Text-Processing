@@ -1,0 +1,34 @@
+key = list(map(int, input().split()))
+counter = 0
+result = ""
+while True:
+    data = input()
+    if data == "find":
+        break
+    for el in data:
+        if counter == len(key):
+            counter = 0
+        value = int(key[counter])
+        new_symbol = chr(ord(el) - value)
+        result += new_symbol
+        counter += 1
+    start = 0
+    stop = 0
+    for index in range(len(result)):
+        treasure_type = ""
+        coord = ""
+        if result[index] == "&":
+            if start == 0:
+                start = index + 1
+            elif stop == 0:
+                stop = index
+        elif result[index] == "<":
+            start_coord = index + 1
+        elif result[index] == ">":
+            stop_coord = index
+    if start > 0 and stop > 0:
+        coord = result[start_coord:stop_coord]
+        treasure_type = result[start:stop]
+        print(f"Found {treasure_type} at {coord}")
+    result = ""
+    counter = 0
