@@ -1,0 +1,12 @@
+char_1 = input()
+char_2 = input()
+random_str = input()
+result = []
+
+start = ord(char_1)
+stop = ord(char_2)
+
+for el in random_str:
+    if start < ord(el) < stop:
+        result.append(ord(el))
+print(sum(result))
