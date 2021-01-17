@@ -1,0 +1,16 @@
+n = int(input())
+
+for _ in range(0, n):
+    data = input()
+    for index in range(len(data)):
+        if data[index] == "@":
+            name_start = index + 1
+        elif data[index] == "|":
+            name_stop = index
+        elif data[index] == "#":
+            age_start = index + 1
+        elif data[index] == "*":
+            age_stop = index
+    name = data[name_start:name_stop]
+    age = data[age_start:age_stop]
+    print(f"{name} is {age} years old.")
